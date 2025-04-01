@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUHAIL LOVES MAHENOOR ♥️</title>
     <style>
-        /* General Styles */
         body {
             background: url('converted_image.jpg') no-repeat center center/cover;
             font-family: 'Arial', sans-serif;
@@ -15,11 +14,11 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            min-height: 100vh;
+            min-height: 200vh;
             margin: 0;
             padding: 20px;
             backdrop-filter: blur(10px) opacity(0.8);
-            overflow: hidden; /* Prevents unwanted scrolling */
+            overflow-y: scroll;
         }
 
         .container {
@@ -33,7 +32,7 @@
         }
 
         h1 {
-            font-size: 5vw; /* Responsive font size */
+            font-size: 50px;
             font-family: 'Times New Roman', serif;
             font-weight: bold;
             color: #FFD700;
@@ -41,16 +40,15 @@
         }
 
         p {
-            font-size: 4vw; /* Responsive font size */
+            font-size: 22px;
             line-height: 1.8;
             font-weight: 600;
         }
 
-        /* Enhanced Button Styles */
         .button {
             background-color: #FFD700;
             color: black;
-            font-size: 5vw; /* Responsive font size */
+            font-size: 20px;
             font-weight: bold;
             padding: 15px 30px;
             margin-top: 20px;
@@ -69,30 +67,18 @@
             box-shadow: 0px 6px 15px rgba(229, 184, 11, 0.9);
         }
 
-        .button:active {
-            transform: scale(0.95);
-        }
-
-        /* Popup Styles */
         .popup {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
             display: none;
-            opacity: 0;
-            animation: popupFadeIn 0.5s forwards;
-            width: 80%;
+            width: 90%;
             max-width: 400px;
-        }
-
-        @keyframes popupFadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         .popup input {
@@ -101,9 +87,7 @@
             border-radius: 5px;
             border: none;
             text-align: center;
-            margin-top: 10px;
             width: 80%;
-            max-width: 300px;
         }
 
         .popup button {
@@ -115,92 +99,50 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .popup button:hover {
-            background-color: rgba(229, 184, 11, 0.8);
-        }
-
-        /* Hint Visibility */
-        .hint {
-            color: #FFD700;
-            font-size: 18px;
-            margin-top: 10px;
-            display: none;
-            animation: hintFadeIn 2s forwards;
-        }
-
-        @keyframes hintFadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Love Note Styles */
         .love-note {
-            background: rgba(255, 215, 0, 0.8);
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 215, 0, 0.9);
             color: black;
             padding: 20px;
-            border-radius: 10px;
-            font-size: 5vw; /* Responsive font size */
+            border-radius: 15px;
+            font-size: 20px;
             font-family: 'Times New Roman', serif;
             font-weight: bold;
             text-align: center;
             width: 90%;
             max-width: 600px;
+            height: 50vh;
+            overflow-y: auto;
             box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.8);
             display: none;
-            margin: 20px auto;
-            overflow-y: auto;
-            max-height: 70vh; /* Scrollable height */
         }
-
-        .love-note p {
-            margin: 0;
-            white-space: nowrap;
-            animation: autoScroll 10s linear infinite;
-        }
-
-        @keyframes autoScroll {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
-        }
-
-        /* Ensure the love note fits on all screen sizes */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 8vw;
-            }
-            p {
-                font-size: 5vw;
-            }
-            .button {
-                font-size: 6vw;
-                padding: 10px 20px;
-            }
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MAHENOOR MERI JAAN ♥️</h1>
-        <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p>
-        
+        <p>Jaanu, every moment with you feels like a beautiful dream...</p>
         <a href="#" class="button" onclick="openPopup()">Receive Love💕</a>
-        <a href="https://wa.me/919136052438" class="button" target="_blank">Send Kisses💋</a>
     </div>
     
     <div id="passwordPopup" class="popup">
         <h2>Enter the Secret Code</h2>
         <input type="password" id="passwordInput" placeholder="Enter Pin...">
-        <p class="hint" id="hint">Together we are one</p>
         <button onclick="checkPassword()">Unlock</button>
         <p id="errorMessage" style="color: red;"></p>
     </div>
     
     <div id="loveNote" class="love-note">
-        <p>Dil ki kalam se kuch likhte hain aahat, Ban chuke hain aap humari aadat... Aapki pyaari si muskurahat dekh jo sukoon milta hai... Saanso mein chupi har hayat hai aapki, Jab aap ho saath toh sawar jayegi zindagi...</p>
+        <p>Dil ki kalam se kuch likhte hain aahat...<br>
+        Ban chuke hain aap humari aadat...<br>
+        Aapki pyaari si muskurahat dekh jo sukoon milta hai...<br>
+        Saanso mein chupi har hayat hai aapki...<br>
+        Jab aap ho saath toh sawar jayegi zindagi...</p>
     </div>
     
     <script>
@@ -208,24 +150,16 @@
         
         function openPopup() {
             document.getElementById("passwordPopup").style.display = "block";
-            setTimeout(() => {
-                document.getElementById("hint").style.display = "block";
-                setTimeout(() => {
-                    document.getElementById("hint").style.display = "none";
-                }, 2000);
-            }, 500);
         }
         
         function checkPassword() {
             let password = document.getElementById("passwordInput").value;
             if (password === "260225") {
-                // Fade out the password popup when the correct password is entered
-                document.getElementById("passwordPopup").style.animation = "popupFadeOut 0.5s forwards";
-                document.getElementById("passwordPopup").style.display = "none"; // Hides the popup
-                document.getElementById("loveNote").style.display = "block"; // Show the love note
+                document.getElementById("passwordPopup").style.display = "none";
+                document.getElementById("loveNote").style.display = "block";
             } else {
                 attempts--;
-                document.getElementById("errorMessage").textContent = `Oops jaan wrong try, send kisses to unlock more chances (${attempts} left)`;
+                document.getElementById("errorMessage").textContent = `Oops jaan wrong try, ${attempts} chances left`;
                 if (attempts <= 0) {
                     window.location.href = "index.html";
                 }
@@ -233,4 +167,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
