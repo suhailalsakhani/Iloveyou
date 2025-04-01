@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +17,7 @@
             margin: 0;
             padding: 20px;
             backdrop-filter: blur(10px) opacity(0.8);
+            overflow: hidden;
         }
         .container {
             background: rgba(0, 0, 0, 0.3);
@@ -25,6 +25,8 @@
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             max-width: 600px;
+            position: relative;
+            z-index: 10;
         }
         h1 {
             font-size: 50px;
@@ -55,15 +57,58 @@
         }
         .kiss-button:hover {
             background-color: rgba(229, 184, 11, 0.8);
-        }
-    </style>
+        }/* Floating Hearts */
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-100vh); opacity: 0; }
+    }
+    .heart {
+        position: absolute;
+        bottom: 0;
+        font-size: 18px;
+        color: red;
+        animation: float 5s linear infinite;
+    }
+</style>
+
 </head>
 <body>
     <div class="container">
         <h1>MAHENOOR MERI JAAN ♥️</h1>
-        <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p>
-        
-        <a href="https://wa.me/919136052438" class="kiss-button" target="_blank">Click Here to Send Kisses</a>
-    </div>
+        <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p><button class="kiss-button" onclick="startFireworks()">Click Here to Send Kisses</button>
+</div>
+
+<!-- Floating Hearts Script -->
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 5000);
+    }
+    setInterval(createHeart, 500);
+</script>
+
+<!-- Fireworks Script -->
+<script>
+    function startFireworks() {
+        let fireworks = document.createElement("div");
+        fireworks.style.position = "fixed";
+        fireworks.style.top = "50%";
+        fireworks.style.left = "50%";
+        fireworks.style.width = "200px";
+        fireworks.style.height = "200px";
+        fireworks.style.background = "url('fireworks.gif') no-repeat center/cover";
+        document.body.appendChild(fireworks);
+        setTimeout(() => { 
+            fireworks.remove(); 
+            window.location.href = "https://wa.me/919136052438";
+        }, 2000);
+    }
+</script>
+
 </body>
 </html>
