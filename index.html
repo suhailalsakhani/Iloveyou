@@ -12,13 +12,13 @@
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            height: 100vh;
+            min-height: 200vh;
             margin: 0;
             padding: 20px;
             backdrop-filter: blur(10px) opacity(0.8);
-            overflow: hidden;
+            overflow-y: scroll;
         }
         .container {
             background: rgba(0, 0, 0, 0.3);
@@ -26,6 +26,7 @@
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             max-width: 600px;
+            margin-top: 50px;
         }
         h1 {
             font-size: 50px;
@@ -64,9 +65,9 @@
             animation: float 6s infinite linear;
         }
         @keyframes float {
-            0% { transform: translateY(-10vh); opacity: 1; }
+            0% { transform: translateY(100vh); opacity: 0; }
             50% { opacity: 0.7; }
-            100% { transform: translateY(100vh); opacity: 0; }
+            100% { transform: translateY(-10vh); opacity: 1; }
         }
     </style>
 </head>
@@ -75,8 +76,8 @@
         <h1>MAHENOOR MERI JAAN ♥️</h1>
         <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p>
         
-        <a href="quotes.html" class="button">Click Here for Jaanemans Words</a>
-        <a href="https://wa.me/919136052438" class="button" target="_blank">Click Here to Send Kisses</a>
+        <a href="quotes.html" class="button">receive love♥️</a>
+        <a href="https://wa.me/919136052438" class="button" target="_blank">Send Kisses💋</a>
     </div>
     <script>
         function createHeart() {
@@ -88,7 +89,7 @@
             const size = Math.random() * 30 + 10;
             heart.style.fontSize = `${size}px`;
             heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.top = '-10vh';
+            heart.style.top = '100vh';
             
             heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
             
