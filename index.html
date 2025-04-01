@@ -17,7 +17,6 @@
             margin: 0;
             padding: 20px;
             backdrop-filter: blur(10px) opacity(0.8);
-            overflow: hidden;
         }
         .container {
             background: rgba(0, 0, 0, 0.3);
@@ -25,8 +24,6 @@
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             max-width: 600px;
-            position: relative;
-            z-index: 10;
         }
         h1 {
             font-size: 50px;
@@ -40,7 +37,7 @@
             line-height: 1.8;
             font-weight: 600;
         }
-        .kiss-button {
+        .button {
             background-color: #FFD700;
             color: black;
             font-size: 20px;
@@ -55,60 +52,43 @@
             box-shadow: 0px 4px 10px rgba(229, 184, 11, 0.8);
             transition: 0.3s ease-in-out;
         }
-        .kiss-button:hover {
+        .button:hover {
             background-color: rgba(229, 184, 11, 0.8);
-        }/* Floating Hearts */
-    @keyframes float {
-        0% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(-100vh); opacity: 0; }
-    }
-    .heart {
-        position: absolute;
-        bottom: 0;
-        font-size: 18px;
-        color: red;
-        animation: float 5s linear infinite;
-    }
-</style>
-
+        }
+        .quote-container {
+            margin-top: 20px;
+        }
+        .quote-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>MAHENOOR MERI JAAN ♥️</h1>
-        <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p><button class="kiss-button" onclick="startFireworks()">Click Here to Send Kisses</button>
-</div>
-
-<!-- Floating Hearts Script -->
-<script>
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-        document.body.appendChild(heart);
-        setTimeout(() => { heart.remove(); }, 5000);
-    }
-    setInterval(createHeart, 500);
-</script>
-
-<!-- Fireworks Script -->
-<script>
-    function startFireworks() {
-        let fireworks = document.createElement("div");
-        fireworks.style.position = "fixed";
-        fireworks.style.top = "50%";
-        fireworks.style.left = "50%";
-        fireworks.style.width = "200px";
-        fireworks.style.height = "200px";
-        fireworks.style.background = "url('fireworks.gif') no-repeat center/cover";
-        document.body.appendChild(fireworks);
-        setTimeout(() => { 
-            fireworks.remove(); 
-            window.location.href = "https://wa.me/919136052438";
-        }, 2000);
-    }
-</script>
-
+        <div class="quote-container">
+            <img src="rotated_portrait.jpg" class="quote-img" id="quoteImage">
+            <p id="loveQuote">"You are my today and all of my tomorrows."</p>
+            <button class="button" onclick="changeQuote()">Click Here for Jaaneman's Words</button>
+        </div>
+        <a href="https://wa.me/919136052438" class="button">Click Here to Send Kisses</a>
+    </div>
+    <script>
+        const quotes = [
+            "You are my today and all of my tomorrows.",
+            "I love you more than words can express.",
+            "Every love story is beautiful, but ours is my favorite.",
+            "You are the best thing that's ever been mine.",
+            "With you, every moment is magical."
+        ];
+        let index = 0;
+        function changeQuote() {
+            index = (index + 1) % quotes.length;
+            document.getElementById("loveQuote").innerText = quotes[index];
+        }
+        setInterval(changeQuote, 7000);
+    </script>
 </body>
 </html>
