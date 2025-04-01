@@ -58,16 +58,54 @@
         .button:hover {
             background-color: rgba(229, 184, 11, 0.8);
         }
-        .floating-heart {
+        .popup {
             position: fixed;
-            color: red;
-            font-size: 20px;
-            animation: float 6s infinite linear;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
         }
-        @keyframes float {
-            0% { transform: translateY(100vh); opacity: 0; }
-            50% { opacity: 0.7; }
-            100% { transform: translateY(-10vh); opacity: 1; }
+        .popup input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+        .popup button {
+            margin-top: 10px;
+        }
+        .hint {
+            color: #FFD700;
+            font-size: 18px;
+            margin-top: 10px;
+            display: none;
+        }
+        .love-note {
+            position: fixed;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.8);
+            display: none;
+            animation: fadeInUp 3s ease-in-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { bottom: -50px; opacity: 0; }
+            to { bottom: 50px; opacity: 1; }
         }
     </style>
 </head>
@@ -76,27 +114,45 @@
         <h1>MAHENOOR MERI JAAN ♥️</h1>
         <p>Jaanu, every moment with you feels like a beautiful dream I never want to wake up from. Your love is the light that brightens my darkest days, and your smile is the melody that my heart beats to. Jaanu, I love you more than words can ever express, and I promise to cherish and adore you for a lifetime. You are my dil, my happiness, and my forever sukoon ♥️</p>
         
-        <a href="quotes.html" class="button">receive love♥️</a>
-        <a href="https://wa.me/919136052438" class="button" target="_blank">Send Kisses💋</a>
+        <a href="#" class="button" onclick="openPopup()">Jaaneman, Read This</a>
+        <a href="https://wa.me/919136052438" class="button" target="_blank">Click Here to Send Kisses</a>
     </div>
+    
+    <div id="passwordPopup" class="popup">
+        <h2>Enter the Secret Code</h2>
+        <input type="password" id="passwordInput" placeholder="Enter the date...">
+        <p class="hint" id="hint">Together we are one</p>
+        <button onclick="checkPassword()">Unlock</button>
+        <p id="errorMessage" style="color: red;"></p>
+    </div>
+    
+    <div id="loveNote" class="love-note">
+        Dil ki kalam se kuch likhta hain aahat, Ban chuke hain aap humari aadat... Aapki pyaari si muskurahat dekh jo sukoon milta hai  Saanso mein chupi har hayat hai aapki, Jab aap hain saath toh sawar jayegi zindagi... Do pal bhi nahi reh sakta main aapke bin, Raatein kat jaati taare gin gin... Naam aapka pehchaan hai humari, Har dadhkan ki awaaz hai tumhari... Hothon par muskurahat hai aapke naam ki, Aapke khayalon mein uljha raat se subah ho jaati... Qubool hi gayi dua hamari, Mil jo gayi humein chahat tumhari.. Nahi hai koi Chahat ab hamari, Jabse judi mujhse dhadkane tumhari...
+    </div>
+    
     <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '❤️';
-            document.body.appendChild(heart);
-            
-            const size = Math.random() * 30 + 10;
-            heart.style.fontSize = `${size}px`;
-            heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.top = '100vh';
-            
-            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            
-            setTimeout(() => heart.remove(), 6000);
+        let attempts = 3;
+        function openPopup() {
+            document.getElementById("passwordPopup").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("hint").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("hint").style.display = "none";
+                }, 2000);
+            }, 500);
         }
-        
-        setInterval(createHeart, 100);
+        function checkPassword() {
+            let password = document.getElementById("passwordInput").value;
+            if (password === "260225") {
+                document.getElementById("loveNote").style.display = "block";
+            } else {
+                attempts--;
+                document.getElementById("errorMessage").textContent = `Oops jaan wrong try, send kisses to unlock more chances (${attempts} left)`;
+                if (attempts <= 0) {
+                    window.location.href = "index.html";
+                }
+            }
+        }
     </script>
 </body>
 </html>
